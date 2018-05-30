@@ -1,6 +1,6 @@
 ## Overtime App
 
-## Usecase: Company needs documentation that salaries employees did or did not get overtime each week
+## Company needs documentation that salaries employees did or did not get overtime each week
 
 ## Model
 - Post -> date: date rationale:text
