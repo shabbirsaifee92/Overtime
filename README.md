@@ -5,7 +5,7 @@
 ## Model
 - Post -> date: date rationale:text
 - User -> Devise
-- Administer -> STI
+- Administer -> Single Table Inheritance
 
 ## Features:
 Approval workflow
