@@ -1,2 +1,25 @@
 %h2
-  Welcome to Posts Page
+  Posts Page
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th
+        \#
+      %th
+        Date
+      %th
+        Text
+      %th
+        User
+  %tbody
+    - @posts.each do |post|
+      %tr
+        %td
+          = post.id
+        %td
+          = post.date
+        %td
+          = truncate post.rationale
+        %td
+          = post.user.last_name

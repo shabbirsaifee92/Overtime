@@ -1,25 +1,35 @@
 require 'rails_helper'
 
 describe 'navigation' do
+  before do
+    @user = User.create(email: '123@test.com', password: 'password', password_confirmation: 'password', first_name: 'shabbir', last_name: 'saifee')
+    login_as(@user, :scope => :user)
+  end
+
   describe 'index' do
     before do
       visit posts_path
     end
-
     it 'can be reached' do
+
       expect(page.status_code).to eq(200)
     end
 
     it 'has a title of Posts' do
       expect(page).to have_content(/Posts/)
     end
+
+    it 'has a list of Posts' do
+      post1 = Post.create!(user: @user, date: Date.today, rationale: 'Post1')
+      post2 = Post.create!(user: @user, date: Date.today, rationale: 'Post2')
+      visit posts_path
+      # binding.pry
+      expect(page).to have_content(/Post1|Post2/)
+    end
   end
 
   describe 'creation' do
     before do
-      user = User.create(email: '123@test.com', password: 'password', password_confirmation: 'password', first_name: 'shabbir', last_name: 'saifee')
-
-      login_as(user, :scpe => :user)
       visit new_post_path
     end
 
@@ -28,8 +38,8 @@ describe 'navigation' do
     end
 
     it 'can be created from new form' do
-      fill_in 'post[date]' , with: Date.today
-      fill_in 'post[rationale]' , with: 'Some rationale'
+      fill_in 'post[date]', with: Date.today
+      fill_in 'post[rationale]', with: 'Some rationale'
 
       click_on 'Save'
 
@@ -37,7 +47,7 @@ describe 'navigation' do
     end
 
     it 'will have a user associated' do
-      fill_in 'post[date]' , with: Date.today
+      fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: 'User Association'
 
       click_on 'Save'

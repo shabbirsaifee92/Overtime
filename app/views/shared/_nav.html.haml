@@ -1,9 +1,9 @@
 .logo
   %h1 Time Tracker
 %ul.nav.nav-tabs
-  %li.active{:role => "presentation"}
+  %li{:class => "#{active?(root_path)}", :role => "presentation"}
     = link_to 'Home', root_path
-  %li{:role => "presentation"}
+  %li{:class => "#{active?(posts_path)}", :role => "presentation"}
     = link_to 'Time Entries', posts_path
   %li.dropdown.pull-right{:role => "presentation"}
     %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
