@@ -27,6 +27,15 @@ describe 'navigation' do
     end
   end
 
+  describe 'new' do
+    it 'has link from homepage' do
+      visit root_path
+      click_link('new_post_tab')
+      expect(page.status_code).to eq(200)
+    end
+
+  end
+
   describe 'creation' do
     before do
       visit new_post_path
