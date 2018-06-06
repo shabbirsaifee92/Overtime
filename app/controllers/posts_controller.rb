@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_post, only: [:show]
+  before_action :find_post, only: [:show, :edit, :update]
 
   def index
     # @posts = Post.find_by(user: current_user)
@@ -23,6 +23,18 @@ class PostsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @post.update(post_params)
+      redirect_to @post, notice: 'New post created successfully'
+    else
+      render :edit
+    end
+
   end
 
   private

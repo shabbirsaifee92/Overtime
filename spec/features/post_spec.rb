@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'navigation' do
   before do
-    @user = User.create(email: '123@test.com', password: 'password', password_confirmation: 'password', first_name: 'shabbir', last_name: 'saifee')
+    @user = FactoryBot.create(:user)
     login_as(@user, :scope => :user)
   end
 
@@ -20,11 +20,10 @@ describe 'navigation' do
     end
 
     it 'has a list of Posts' do
-      post1 = Post.create!(user: @user, date: Date.today, rationale: 'Post1')
-      post2 = Post.create!(user: @user, date: Date.today, rationale: 'Post2')
+      post1 = FactoryBot.create(:post)
+      post2 = FactoryBot.create(:second_post)
       visit posts_path
-      # binding.pry
-      expect(page).to have_content(/Post1|Post2/)
+      expect(page).to have_content(/rationale|content/)
     end
   end
 
@@ -53,6 +52,28 @@ describe 'navigation' do
       click_on 'Save'
 
       expect(User.last.posts.last.rationale).to eq('User Association')
+    end
+  end
+
+  describe 'edit' do
+    before do
+      @post = FactoryBot.create(:post)
+    end
+
+    it 'can be reached by clicking edit on index page' do
+      visit posts_path
+      click_link "edit-post-#{@post.id}"
+      expect(page.status_code).to eq(200)
+    end
+
+    it 'can be edited' do
+      visit edit_post_path(@post)
+      fill_in 'post[date]', with: Date.today
+      fill_in 'post[rationale]', with: 'Edited Content'
+
+      click_on 'Save'
+
+      expect(page).to have_content('Edited Content')
     end
   end
 end

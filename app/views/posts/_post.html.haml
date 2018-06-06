@@ -7,3 +7,5 @@
     = truncate post.rationale
   %td
     = post.user.full_name
+  %td
+    = link_to 'Edit', edit_post_path(post), id: "edit-post-#{post.id}"
