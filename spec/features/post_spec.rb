@@ -10,8 +10,8 @@ describe 'navigation' do
     before do
       visit posts_path
     end
-    it 'can be reached' do
 
+    it 'can be reached' do
       expect(page.status_code).to eq(200)
     end
 
@@ -83,6 +83,16 @@ describe 'navigation' do
       click_on 'Save'
 
       expect(page).to have_content('Edited Content')
+    end
+  end
+
+  describe 'delete' do
+    it 'can be deleted' do
+      post = FactoryBot.create(:post)
+      visit posts_path
+
+      click_link("delete-post-#{post.id}")
+      expect(page.status_code).to eq(200)
     end
   end
 end
