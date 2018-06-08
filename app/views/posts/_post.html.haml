@@ -10,4 +10,4 @@
   %td
     = link_to 'Edit', edit_post_path(post), id: "edit-post-#{post.id}"
   %td
-    = link_to 'Delete', post_path(post), method: :delete, id: "delete-post-#{post.id}"
+    = link_to 'Delete', post_path(post), method: :delete, id: "delete-post-#{post.id}", data: {confirm: 'Are you sure?'}
