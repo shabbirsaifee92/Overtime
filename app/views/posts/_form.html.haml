@@ -1,4 +1,9 @@
-= form_for post do |f|
-  = f.date_field :date
-  = f.text_area :rationale
-  = f.submit 'Save'
+= form_for post, class: 'form-horizontal' do |f|
+  .form-group
+    = f.label :date, for: 'date', class: 'control-label'
+    = f.date_field :date, id: 'date', class: 'form-control'
+  .form-group
+    = f.label :rationale, for: 'rationale'
+    = f.text_area :rationale, id: 'rationale', class: 'form-control'
+
+  = f.submit 'Save', class: 'btn btn-primary btn-block'
