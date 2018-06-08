@@ -14,11 +14,13 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'haml-rails'
+gem 'haml-rails', "~> 1.0"
 gem 'devise'
 gem 'cancancan', '~> 2.0'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
+gem 'gritter', '1.2.0'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
@@ -36,4 +38,4 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

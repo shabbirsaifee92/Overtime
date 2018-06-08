@@ -1,3 +1,8 @@
+- if post.errors.any?
+  - post.errors.full_messages.each do |error|
+
+    -#= js add_gritter(error, title: 'Error', sticky: false )
+    = js add_gritter(error, title: 'Notifications just for you', sticky: false)
 = form_for post, class: 'form-horizontal' do |f|
   .form-group
     = f.label :date, for: 'date', class: 'control-label'

@@ -17,7 +17,6 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post, notice: 'New post created successfully'
     else
-      flash[:error] = 'Cannot create new post!!'
       render :new
     end
   end
@@ -30,7 +29,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: 'New post created successfully'
+      redirect_to @post, notice: 'New post updated successfully'
     else
       render :edit
     end
