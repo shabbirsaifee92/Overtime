@@ -4,11 +4,27 @@
     -#= js add_gritter(error, title: 'Error', sticky: false )
     = js add_gritter(error, title: 'Notifications just for you', sticky: false)
 = form_for post, class: 'form-horizontal' do |f|
+
   .form-group
     = f.label :date, for: 'date', class: 'control-label'
     = f.date_field :date, id: 'date', class: 'form-control'
+
   .form-group
     = f.label :rationale, for: 'rationale'
     = f.text_area :rationale, id: 'rationale', class: 'form-control'
+
+  .form-group
+
+    = f.radio_button :status, 'default'
+    = f.label :status, 'Default'
+
+    = f.radio_button :status, 'submitted'
+    = f.label :status, 'Submitted'
+
+    = f.radio_button :status, 'approved'
+    = f.label :status, 'Approved'
+
+    = f.radio_button :status, 'rejected'
+    = f.label :status, 'Rejected  '
 
   = f.submit 'Save', class: 'btn btn-primary btn-block'
