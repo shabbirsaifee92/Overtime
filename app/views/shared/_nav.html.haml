@@ -8,6 +8,8 @@
   %li
     = link_to 'Add New Post', new_post_path, id: 'new_post_tab'
   - if current_user.present?
+    %li.pull-right
+      = current_user.full_name
     %li.dropdown.pull-right{:role => "presentation"}
       %a.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
         Account

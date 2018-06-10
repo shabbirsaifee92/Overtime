@@ -6,16 +6,12 @@
 # you're free to overwrite the RESTful controller actions.
 module Admin
 
-  def self.admin_types
-    ['AdminUser']
-  end
-
   class ApplicationController < Administrate::ApplicationController
     before_action :authenticate_user!
     before_action :authenticate_admin
 
     def authenticate_admin
-      unless Admin.admin_types.include?(current_user.try :type)
+      unless current_user.admin?
         flash[:error] = 'Page you are looking for does not exist'
         redirect_to root_path
       end
