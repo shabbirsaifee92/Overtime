@@ -19,4 +19,12 @@ FactoryBot.define do
     first_name 'Admin'
     last_name 'User'
   end
+
+  factory :unauthorized_user, class: 'User' do
+    email { generate :email }
+    password 'password'
+    password_confirmation 'password'
+    first_name 'Unauthorized'
+    last_name 'User'
+  end
 end

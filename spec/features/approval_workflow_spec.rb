@@ -2,14 +2,14 @@ require 'rails_helper'
 
 describe 'navigate' do
 
-  before '' do
+  before  do
     @admin_user = FactoryBot.create(:admin_user)
     login_as @admin_user, scope: :user
   end
 
   describe 'edit' do
     before do
-      @post = FactoryBot.create(:post)
+      @post = FactoryBot.create(:post, user: @admin_user)
       visit edit_post_path(@post)
     end
 
@@ -28,7 +28,7 @@ describe 'navigate' do
       login_as user, scope: :user
 
       visit edit_post_path(@post)
-      expect(page).to_not have_content('Approved')
+      expect(current_path).to eq(root_path)
     end
   end
 end

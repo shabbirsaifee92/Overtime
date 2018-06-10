@@ -21,6 +21,7 @@ gem 'jquery-rails'
 gem 'gritter', '1.2.0'
 gem "administrate"
 gem 'pundit', '~> 1.1'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
@@ -29,6 +30,7 @@ group :development, :test do
   gem 'pry'
   gem 'database_cleaner'
   gem 'factory_bot_rails', '~> 4.10'
+  gem 'dotenv-rails'
 end
 
 group :development do

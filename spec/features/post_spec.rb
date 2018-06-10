@@ -19,12 +19,19 @@ describe 'navigation' do
       expect(page).to have_content(/Posts/)
     end
 
-    it 'has a list of Posts' do
-      post1 = FactoryBot.create(:post)
-      post2 = FactoryBot.create(:second_post)
+    it 'has a list of Posts only created by the same user' do
+      post1 = FactoryBot.create(:post, user: @user)
+      post2 = FactoryBot.create(:second_post, user: @user)
+      unauthorized_user = FactoryBot.create(:unauthorized_user)
+
+      FactoryBot.create(:post, rationale: 'content from other user', user: unauthorized_user)
+
       visit posts_path
+
       expect(page).to have_content(/rationale|content/)
+      expect(page).to_not have_content(/content from other user/)
     end
+
   end
 
   describe 'new' do
@@ -66,7 +73,7 @@ describe 'navigation' do
 
   describe 'edit' do
     before do
-      @post = FactoryBot.create(:post)
+      @post = FactoryBot.create(:post, user: @user)
     end
 
     it 'can be reached by clicking edit on index page' do
@@ -84,11 +91,21 @@ describe 'navigation' do
 
       expect(page).to have_content('Edited Content')
     end
+
+    it 'cannot be edited by a non authorized user' do
+      logout :user
+      unauthorized_user = FactoryBot.create(:unauthorized_user)
+      login_as unauthorized_user
+
+      visit edit_post_path(@post)
+
+      expect(current_path).to eq(root_path)
+    end
   end
 
   describe 'delete' do
     it 'can be deleted' do
-      post = FactoryBot.create(:post)
+      post = FactoryBot.create(:post, user: @user)
       visit posts_path
 
       click_link("delete-post-#{post.id}")

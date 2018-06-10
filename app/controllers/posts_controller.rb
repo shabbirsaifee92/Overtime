@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
   def index
     # @posts = Post.find_by(user: current_user)
-    @posts = Post.all
+    @posts = current_user.posts
   end
 
   def new
