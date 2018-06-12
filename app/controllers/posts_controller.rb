@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_post, only: [:show, :edit, :update, :destroy]
 
+
   def index
     # @posts = Post.find_by(user: current_user)
     @posts = Post.posts_by current_user
