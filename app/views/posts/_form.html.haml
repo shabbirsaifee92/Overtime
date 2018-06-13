@@ -6,6 +6,10 @@
 = form_for post, class: 'form-horizontal' do |f|
 
   .form-group
+    = f.label :hours, for: 'hours'
+    = f.number_field :hours, id: 'hours', class: 'form-control text_field', step: :any
+
+  .form-group
     = f.label :date, for: 'date', class: 'control-label'
     = f.date_field :date, id: 'date', class: 'form-control'
 

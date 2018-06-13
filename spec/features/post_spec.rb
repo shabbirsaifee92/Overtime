@@ -59,10 +59,9 @@ describe 'navigation' do
     it 'can be created from new form' do
       fill_in 'post[date]', with: Date.today
       fill_in 'post[rationale]', with: 'Some rationale'
+      fill_in 'post[hours]', with: 0.5
+      expect { click_on 'Save' }.to change(Post, :count).by(1)
 
-      click_on 'Save'
-
-      expect(page).to have_content('Some rationale')
     end
 
     it 'will have a user associated' do
@@ -71,7 +70,7 @@ describe 'navigation' do
 
       click_on 'Save'
 
-      expect(User.last.posts.last.rationale).to eq('User Association')
+      expect(post.user).to eq(user)
     end
   end
 

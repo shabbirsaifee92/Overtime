@@ -1,10 +1,12 @@
-%tr
+%tr.clickable
   %td
     = post.id
   %td
     = post.date
   %td
-    = truncate post.rationale
+    = post.hours
+  %td
+    = link_to (truncate post.rationale), post
   %td
     = post.user.full_name
   %td

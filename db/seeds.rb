@@ -7,7 +7,7 @@ User.create!(email: 'shabbirsaifee91@gmail.com', password: 'password', password_
 puts '1 Admin User created---------------------------'
 
 100.times do |post|
-  Post.create(user: user, date: Date.today, rationale: "#{post} rational content")
+  Post.create(user: user, date: Date.today, rationale: "#{post} rational content", hours: 2.5)
 end
 
 puts "100 posts have been create--------------------------"

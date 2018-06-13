@@ -1,2 +1,17 @@
 %h2
   = @post.rationale
+.well
+  %h3
+    %span
+      = "Overtime hours: #{@post.hours}"
+  %h3
+    %span
+      = "Employee: #{@post.user.full_name}"
+  %h3
+    %span
+      = "Status: #{@post.status}"
+  %h3
+    %span
+      = "Date: #{@post.date}"
+
+= link_to 'Edit', edit_post_path(@post), class: 'btn btn-primary' if policy(@post).update?
