@@ -13,6 +13,6 @@
     = status_label(post.status)
   %td
     - if policy(post).update?
-      = link_to 'Edit', edit_post_path(post), id: "edit-post-#{post.id}"
+      = link_to '', edit_post_path(post), id: "edit-post-#{post.id}", class: 'glyphicon glyphicon-pencil index-icons'
   %td
-    = link_to 'Delete', post_path(post), method: :delete, id: "delete-post-#{post.id}", data: {confirm: 'Are you sure?'}
+    = link_to '', post_path(post), method: :delete, id: "delete-post-#{post.id}", class: 'glyphicon glyphicon-trash index-icons', data: {confirm: 'Are you sure?'}
