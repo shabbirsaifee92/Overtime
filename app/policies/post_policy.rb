@@ -1,7 +1,9 @@
 class PostPolicy < ApplicationPolicy
 
   def update?
-    record.user == user || user.admin?
+    return true if record.approved? && user.admin?
+
+    (record.user == user || user.admin?) && !record.approved?
   end
 
   def show?
