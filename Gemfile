@@ -21,7 +21,7 @@ gem 'jquery-rails'
 gem 'gritter', '1.2.0'
 gem "administrate"
 gem 'pundit', '~> 1.1'
-
+gem "font-awesome-rails"
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
