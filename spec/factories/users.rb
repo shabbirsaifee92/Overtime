@@ -10,6 +10,7 @@ FactoryBot.define do
     password_confirmation 'password'
     first_name 'Jon'
     last_name 'Snow'
+    phone_number '+19876543210'
   end
 
   factory :admin_user, class: 'AdminUser' do
@@ -18,6 +19,7 @@ FactoryBot.define do
     password_confirmation 'password'
     first_name 'Admin'
     last_name 'User'
+    phone_number '+19876543210'
   end
 
   factory :another_user, class: 'User' do
@@ -26,5 +28,6 @@ FactoryBot.define do
     password_confirmation 'password'
     first_name 'Unauthorized'
     last_name 'User'
+    phone_number '+19876543210'
   end
 end
