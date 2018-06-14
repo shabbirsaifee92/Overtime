@@ -17,6 +17,18 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe 'validations' do
+    it 'requires phone number only to have numbers' do
+      @user.phone_number = 'mygreatstr'
+      expect(@user).to_not be_valid
+    end
+
+    it 'requires the phone to be only 10 chars' do
+      @user.phone_number = '12345678901'
+      expect(@user).to_not be_valid
+    end
+  end
+
   describe 'custom name methods' do
     it 'has a full name method to retun full name' do
       expect(@user.full_name).to eq('SNOW, JON')
