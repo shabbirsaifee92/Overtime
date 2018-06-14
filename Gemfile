@@ -22,6 +22,8 @@ gem 'gritter', '1.2.0'
 gem "administrate"
 gem 'pundit', '~> 1.1'
 gem "font-awesome-rails"
+gem 'twilio-ruby', '~> 5.10.3'
+
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
@@ -30,7 +32,7 @@ group :development, :test do
   gem 'pry'
   gem 'database_cleaner'
   gem 'factory_bot_rails', '~> 4.10'
-  gem 'dotenv-rails'
+  gem 'dotenv-rails', '~> 2.4'
 end
 
 group :development do
