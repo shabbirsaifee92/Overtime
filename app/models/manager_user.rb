@@ -1,0 +1,3 @@
+class ManagerUser < AdminUser
+
+end

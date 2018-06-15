@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
 
   has_many :posts
-
+  has_many :audit_logs
   def admin?
     admin_types.include?(self.type)
   end
