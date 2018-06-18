@@ -5,6 +5,9 @@
     = link_to 'Home', root_path
   %li{:class => "#{active?(posts_path)}", :role => "presentation"}
     = link_to 'Time Entries', posts_path
+  - if policy(AuditLog).index?
+    %li{:class => "#{active?(audit_logs_path)}", :role => "presentation"}
+      = link_to 'Aduit Log', audit_logs_path, id: 'audit_log_index'
   %li
     = link_to 'Add New Post', new_post_path, id: 'new_post_tab'
   - if current_user.present?

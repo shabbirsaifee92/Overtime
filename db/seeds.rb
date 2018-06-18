@@ -1,4 +1,4 @@
-user = User.create(email: '123@test.com',
+user = User.create(email: 'user@test.com',
                    password: 'password',
                    password_confirmation: 'password',
                    first_name: 'test',
@@ -7,11 +7,11 @@ user = User.create(email: '123@test.com',
 
 puts "1 user  been create--------------------------"
 
-AdminUser.create!(email: 'shabbirsaifee91@gmail.com',
+AdminUser.create!(email: 'admin@test.com',
                   password: 'password',
                   password_confirmation: 'password',
-                  first_name: 'shabbir',
-                  last_name: 'saifee',
+                  first_name: 'admin',
+                  last_name: 'user',
                   phone_number: '8572696189')
 
 puts '1 Admin User created---------------------------'
