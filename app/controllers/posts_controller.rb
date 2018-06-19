@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def index
     # @posts = Post.find_by(user: current_user)
-    @posts = Post.posts_by current_user
+    @posts = Post.posts_by(current_user).page params[:page]
   end
 
   def new
