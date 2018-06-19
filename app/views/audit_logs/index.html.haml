@@ -1,11 +1,18 @@
+%h2
+  Audit Logs
+
 %table.table.table-bordered.table-hover
   %thead
     %tr
       %th
-        User
+        \#
       %th
-        Start Date
+        Employee
       %th
-        End Date
+        Week Starting
+      %th
+        Confirmed At
+      %th
+        Status
   %tbody
     = render @audit_logs

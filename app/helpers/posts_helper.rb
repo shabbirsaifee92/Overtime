@@ -10,7 +10,7 @@ module PostsHelper
     case status
     when 'default'
       content_tag :span, 'Unsubmitted', class: 'label label-primary'
-    when 'submitted'
+    when 'submitted', 'pending'
       content_tag :span, 'Pending', class: 'label label-warning'
     when 'approved'
       content_tag :span, status.titleize, class: 'label label-success'
