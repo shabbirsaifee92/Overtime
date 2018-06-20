@@ -1,4 +1,9 @@
 .jumbotron
+  - if current_user
+    - if current_user.admin?
+      = render partial: 'admin'
+    - else
+      = render partial: 'employee'
   %h2
     Hello, world!
   %p

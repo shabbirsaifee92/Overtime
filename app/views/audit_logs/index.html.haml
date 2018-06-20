@@ -14,7 +14,7 @@
         Confirmed At
       %th
         Status
-  %tbody
+  %tbody{id: 'audit_logs'}
     = render @audit_logs
 
 = render partial: 'shared/paginate', locals: { collection: @audit_logs }
