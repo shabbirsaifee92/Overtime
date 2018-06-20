@@ -10,4 +10,8 @@ class PostPolicy < ApplicationPolicy
     record.user == user || user.admin?
   end
 
+  def approve?
+    user.admin?
+  end
+
 end

@@ -2,23 +2,33 @@
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
-  background-color: #efefef ;
+  background-color: #f2f2f2 ;
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 20px;
+  opacity: 0.8;
 }
 
 
 .homepage-block{
   margin: 15px 35px 15px 35px;
   padding: 15px;
-  background-color: #0082ff;
-  color: white;
+  background: rgba(90,75,152,.91);
+  //background-color: #A28B8E;
+  color: whitesmoke;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   border-radius: 10px;
+  opacity: 1;
+  z-index: 1;
 }
 
 .pending-details{
   font-weight: 900;
+}
+
+.shadow {
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 10px 10px 6px -6px #777;
 }
