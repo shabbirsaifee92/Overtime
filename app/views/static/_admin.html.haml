@@ -1,2 +1,6 @@
-%h2
-  Admin
+.container-fluid
+  .pending-homepage.row
+    %h2.text-center
+      Pending Approvals
+    %hr
+    = render partial: 'pending_approval', locals: { pending_approvals: @pending_approvals }

@@ -3,7 +3,16 @@
 @import "posts.scss";
 @import "gritter";
 @import "font-awesome";
+@import "admin_homepage";
 
 .custom-nav{
   margin: 15px 0 15px 0;
+}
+
+body{
+  font-family: 'Work Sans',sans-serif;
+}
+
+.btn{
+  border-radius: 30px;
 }
