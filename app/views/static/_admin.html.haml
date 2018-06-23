@@ -4,3 +4,13 @@
       Pending Approvals
     %hr
     = render partial: 'pending_approval', locals: { pending_approvals: @pending_approvals }
+
+
+  .pending-homepage.row
+    %h2.text-center
+      Confirmation Log
+    %hr
+    = render partial: 'confirmation_log', locals: { recent_audit_logs: @recent_audit_logs }
+
+    .clearfix
+    = link_to 'View all', audit_logs_path, id: 'view-audit-logs', class:'btn btn-primary btn-mini'

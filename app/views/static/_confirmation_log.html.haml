@@ -1,0 +1,18 @@
+- recent_audit_logs.each do |audit_log|
+  .homepage-block.col-md-3.text-center.shadow
+    = audit_log.user.full_name
+    %hr
+    %p
+      %span.pending-details
+        Week starting:
+      = audit_log.start_date
+    %p
+      %span.pending-details
+        Confirmed at:
+      = audit_log.end_date || status_label(audit_log.status)
+    %p
+      %span.pending-details
+        Status:
+      = status_label audit_log.status
+    %hr
+
