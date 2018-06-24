@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_post, only: [:show, :edit, :update, :destroy, :approve]
+  before_action :find_post, only: [:show, :edit, :update, :destroy, :approve, :submit]
 
 
   def index
@@ -36,6 +36,15 @@ class PostsController < ApplicationController
       redirect_to @post, notice: 'New post updated successfully'
     else
       render :edit
+    end
+  end
+
+  def submit
+    authorize @post
+    if @post.update_attribute(:status, 'submitted')
+      redirect_to root_path, notice: 'Post submitted successfully'
+    else
+      render :show, notice: 'Something went wrong'
     end
   end
 

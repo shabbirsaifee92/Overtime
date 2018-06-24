@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'homepage' do
   let(:admin_user) { FactoryBot.create(:admin_user) }
-  let!(:post) { FactoryBot.create(:post) }
+  let!(:post) { FactoryBot.create(:post, status: 'submitted') }
 
   before do
     login_as admin_user

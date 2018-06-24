@@ -1,2 +1,15 @@
-%h2
-  Employee
+.container-fluid
+  .pending-homepage.row
+    %h2.text-center
+      Unsubmitted Posts
+    %hr
+    = render partial: 'unsubmitted_posts', locals: { unsubmitted_posts: @unsubmitted_posts }
+
+  .pending-homepage.row
+    %h2.text-center
+      Pending Audit Confirmations
+    %hr
+    = render partial: 'pending_audit_confirmation', locals: { pending_audit_confirmations: @pending_audit_confirmations }
+
+    -#.clearfix
+    -#= link_to 'View all', audit_logs_path, id: 'view-audit-logs', class:'btn btn-primary btn-mini'

@@ -12,7 +12,7 @@ Approval workflow
 SMS Sending -> link to approval for overtime input
 Administrate admin dashboard
 Email summary to manager approval
-Needs to be documented if employee did not log overtime
+Needs to be documented if employee did not log overtime for the week
 
 ## UI
 Bootstrap -> formatting

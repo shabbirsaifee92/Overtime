@@ -12,6 +12,9 @@
   %td
     = status_label(post.status)
   %td
+    - if policy(post).submit?
+      = link_to '', submit_post_path(post), id: "submit-post-#{post.id}", class: 'fa fa-paper-plane-o index-icons'
+  %td
     - if policy(post).update?
       = link_to '', edit_post_path(post), id: "edit-post-#{post.id}", class: 'fa fa-pencil-square-o fa-lg index-icons'
   %td
