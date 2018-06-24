@@ -94,7 +94,7 @@ describe 'navigation' do
 
     it 'cannot be edited by a non authorized user' do
       logout :user
-      another_user = FactoryBot.build(:another_user)
+      another_user = FactoryBot.create(:another_user)
       login_as another_user
 
       visit edit_post_path(post)

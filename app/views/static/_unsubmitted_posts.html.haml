@@ -16,7 +16,7 @@
       %hr
       .row
         .col-md-6
-          = link_to 'Edit', edit_post_path(unsubmitted_post), class: 'btn btn-warning btn-block', id: "review_#{unsubmitted_post.id}"
+          = link_to 'Edit', edit_post_path(unsubmitted_post), class: 'btn btn-warning btn-block', id: "edit_post_#{unsubmitted_post.id}"
 
         .col-md-6
-          = link_to 'Submit', submit_post_path(unsubmitted_post), class: 'btn btn-success btn-block', id: "approve_#{unsubmitted_post.id}"
+          = link_to 'Submit', submit_post_path(unsubmitted_post), class: 'btn btn-success btn-block', id: "submit_post_#{unsubmitted_post.id}"

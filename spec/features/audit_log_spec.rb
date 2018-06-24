@@ -3,8 +3,8 @@ require 'rails_helper'
 describe 'AuditLog feature' do
 
   let!(:audit_log) { FactoryBot.create(:audit_log) }
-  let(:admin_user) { FactoryBot.build(:admin_user) }
-  let(:user) { FactoryBot.build(:user) }
+  let(:admin_user) { FactoryBot.create(:admin_user) }
+  let(:user) { FactoryBot.create(:user) }
 
   before do
     login_as admin_user
