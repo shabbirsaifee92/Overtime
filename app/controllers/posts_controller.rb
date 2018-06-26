@@ -41,7 +41,7 @@ class PostsController < ApplicationController
 
   def submit
     authorize @post
-    if @post.update_attribute(:status, 'submitted')
+    if @post.submitted!
       redirect_to root_path, notice: 'Post submitted successfully'
     else
       render :show, notice: 'Something went wrong'

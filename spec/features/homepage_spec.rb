@@ -31,11 +31,9 @@ describe 'homepage' do
       expect(unsubmitted_post.reload.status).to eq('submitted')
     end
 
-    xit 'allows employeed to confirm weekly overtime' do
+    it 'allows employees to confirm weekly overtime' do
       click_on "confirm_audit_log_#{audit_log.id}"
       expect(audit_log.reload.status).to eq('confirmed')
     end
   end
-
-
 end
