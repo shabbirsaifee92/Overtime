@@ -42,6 +42,7 @@ class PostsController < ApplicationController
   def submit
     authorize @post
     if @post.submitted!
+      @post.update_audit_log
       redirect_to root_path, notice: 'Post submitted successfully'
     else
       render :show, notice: 'Something went wrong'
