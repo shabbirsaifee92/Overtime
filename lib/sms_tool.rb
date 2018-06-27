@@ -11,7 +11,7 @@ module SmsTool
 
     @client.messages.create(
                        from: ENV['TWILIO_PHONE_NUMBER'],
-                       to: "+91#{number}",
+                       to: "+1#{number}",
                        body: "#{message}"
     )
   end
