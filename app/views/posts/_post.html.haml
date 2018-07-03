@@ -15,7 +15,7 @@
     - if policy(post).submit?
       = link_to '', submit_post_path(post), id: "submit-post-#{post.id}", class: 'fa fa-paper-plane-o index-icons'
   %td
-    - if policy(post).update?
+    - if policy(post).edit?
       = link_to '', edit_post_path(post), id: "edit-post-#{post.id}", class: 'fa fa-pencil-square-o fa-lg index-icons'
   %td
     = link_to '', post_path(post), method: :delete, id: "delete-post-#{post.id}", class: 'fa fa-trash-o fa-lg index-icons', data: {confirm: 'Are you sure?'}

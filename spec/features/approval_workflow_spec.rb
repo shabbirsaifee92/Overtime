@@ -6,7 +6,7 @@ describe 'navigate' do
   let!(:admin_user) { FactoryBot.create(:admin_user) }
   let!(:post) { FactoryBot.create(:post, user: user) }
 
-  before  do
+  before do
     login_as admin_user, scope: :user
   end
 

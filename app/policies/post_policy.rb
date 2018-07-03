@@ -1,15 +1,20 @@
 class PostPolicy < ApplicationPolicy
 
   def update?
-    return true if record.approved? && user.admin?
+    return true if user.admin?
 
-    (record.user == user || user.admin?) && record.default?
+    record.user == user && record.default?
   end
 
   def show?
-    record.user == user || user.admin?
+    user.admin? || record.user == user
   end
 
+  def edit?
+    return true if user.admin?
+
+    record.user == user && record.default?
+  end
 
   def approve?
     user.admin?
