@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :audit_logs, except: [:new, :edit, :destroy] do
     get :confirm
   end

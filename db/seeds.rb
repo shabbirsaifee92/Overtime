@@ -7,7 +7,7 @@ employee = Employee.create(email: 'ssaifee.user@test.com',
 
 puts "1 Employee created--------------------------"
 
-AdminUser.create!(email: 'ssaifee.admin@test.com',
+AdminUser.create!(email: 'ssaifee.admin@maildrop.cc',
                   password: 'password',
                   password_confirmation: 'password',
                   first_name: 'admin',
@@ -16,7 +16,7 @@ AdminUser.create!(email: 'ssaifee.admin@test.com',
 
 puts '1 Admin User created---------------------------'
 
-100.times do |post|
+10.times do |post|
   Post.create(user: employee, date: Date.today, rationale: "#{post} rational content Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua", hours: 2.5)
 end
 
