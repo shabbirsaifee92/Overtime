@@ -20,3 +20,4 @@
 .idea/*
 .rspec
 /.env
+/config/newrelic.yml
