@@ -24,6 +24,7 @@ gem 'pundit', '~> 1.1'
 gem "font-awesome-rails"
 gem 'twilio-ruby', '~> 5.10.3'
 gem 'kaminari'
+gem 'newrelic_rpm'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
