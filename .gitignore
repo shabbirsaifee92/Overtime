@@ -21,4 +21,4 @@
 .rspec
 /.env
 /config/newrelic.yml
-/config/newrelic.yml
+.config/*
