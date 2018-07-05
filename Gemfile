@@ -30,6 +30,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'rspec-rails'
   gem 'pry'
+  gem 'pry-nav'
   gem 'database_cleaner'
   gem 'factory_bot_rails', '~> 4.10'
   gem 'dotenv-rails', '~> 2.4'

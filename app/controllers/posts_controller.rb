@@ -33,6 +33,7 @@ class PostsController < ApplicationController
   def update
     authorize @post
     if @post.update(post_params)
+      @post.update_audit_log
       redirect_to @post, notice: 'New post updated successfully'
     else
       render :edit

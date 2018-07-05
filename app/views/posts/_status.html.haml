@@ -1,13 +1,13 @@
 .form-group
 
-  = f.radio_button :status, 'default'
-  = f.label :status, 'Default'
+  = f.radio_button :status, 'default', id: 'default'
+  = f.label :status, 'Default', for: 'default'
 
-  = f.radio_button :status, 'submitted'
-  = f.label :status, 'Submitted'
+  = f.radio_button :status, 'submitted', id: 'submitted'
+  = f.label :status, 'Submitted', for: 'submitted'
 
-  = f.radio_button :status, 'approved'
-  = f.label :status, 'Approved'
+  = f.radio_button :status, 'approved', id: 'approved'
+  = f.label :status, 'Approved', for: 'approved'
 
-  = f.radio_button :status, 'rejected'
-  = f.label :status, 'Rejected'
+  = f.radio_button :status, 'rejected', id: 'rejected'
+  = f.label :status, 'Rejected', for: 'rejected'
