@@ -27,6 +27,16 @@ RSpec.describe User, type: :model do
       @user.phone_number = '12345678901'
       expect(@user).to_not be_valid
     end
+
+    it 'requires ssn' do
+      @user.ssn = nil
+      expect(@user).to_not be_valid
+    end
+
+    it 'requires company name' do
+      @user.company = nil
+      expect(@user).to_not be_valid
+    end
   end
 
   describe 'custom name methods' do

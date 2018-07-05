@@ -3,7 +3,9 @@ manager = Manager.create(email: 'ssaifee.manager@test.com',
                          password_confirmation: 'password',
                          first_name: 'manager',
                          last_name: 'user',
-                         phone_number: '8572696189')
+                         phone_number: '8572696189',
+                         ssn: 1234,
+                         company: 'ABC company')
 puts "1 Manager created--------------------------"
 
 employee = Employee.create(email: 'ssaifee.user@test.com',
@@ -12,7 +14,9 @@ employee = Employee.create(email: 'ssaifee.user@test.com',
                    first_name: 'test',
                    last_name: 'user',
                    phone_number: '8572696189',
-                   manager: manager)
+                   manager: manager,
+                   ssn: 1234,
+                   company: 'ABC company')
 
 puts "1 Employee created--------------------------"
 
@@ -21,7 +25,9 @@ AdminUser.create!(email: 'ssaifee.admin@maildrop.cc',
                   password_confirmation: 'password',
                   first_name: 'admin',
                   last_name: 'user',
-                  phone_number: '8572696189')
+                  phone_number: '8572696189',
+                  ssn: 1234,
+                  company: 'ABC company')
 
 puts '1 Admin User created---------------------------'
 

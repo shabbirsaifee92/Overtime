@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class AdminUserDashboard < Administrate::BaseDashboard
+class ManagerDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -10,8 +10,8 @@ class AdminUserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     posts: Field::HasMany.with_options(searchable: false),
     id: Field::Number.with_options(searchable: false),
-    password: Field::String.with_options(searchable: false),
     email: Field::String.with_options(searchable: true),
+    password: Field::String.with_options(searchable: false),
     encrypted_password: Field::String.with_options(searchable: false),
     reset_password_token: Field::String.with_options(searchable: false),
     reset_password_sent_at: Field::DateTime.with_options(searchable: false),
@@ -29,6 +29,7 @@ class AdminUserDashboard < Administrate::BaseDashboard
     phone_number: Field::String.with_options(searchable: false),
     ssn: Field::Number.with_options(searchable: true),
     company: Field::String.with_options(searchable: true)
+
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -38,10 +39,10 @@ class AdminUserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :posts,
-    :id,
     :email,
     :first_name,
     :last_name,
+    :type,
     :phone_number,
     :ssn,
     :company
@@ -50,22 +51,21 @@ class AdminUserDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-      :posts,
-      :id,
-      :email,
-      :phone_number,
-      :sign_in_count,
-      :current_sign_in_at,
-      :last_sign_in_at,
-      :current_sign_in_ip,
-      :last_sign_in_ip,
-      :first_name,
-      :last_name,
-      :type,
-      :created_at,
-      :updated_at,
-      :ssn,
-      :company
+    :posts,
+    :email,
+    :phone_number,
+    :sign_in_count,
+    :current_sign_in_at,
+    :last_sign_in_at,
+    :current_sign_in_ip,
+    :last_sign_in_ip,
+    :first_name,
+    :last_name,
+    :type,
+    :created_at,
+    :updated_at,
+    :ssn,
+    :company
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -76,16 +76,15 @@ class AdminUserDashboard < Administrate::BaseDashboard
     :password,
     :first_name,
     :last_name,
-    :type,
     :phone_number,
     :ssn,
     :company
   ].freeze
 
-  # Overwrite this method to customize how admin users are displayed
+  # Overwrite this method to customize how users are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(admin_user)
-  #   "AdminUser ##{admin_user.id}"
+  # def display_resource(user)
+  #   "User ##{user.id}"
   # end
 end

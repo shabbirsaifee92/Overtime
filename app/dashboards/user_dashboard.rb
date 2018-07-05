@@ -26,7 +26,10 @@ class UserDashboard < Administrate::BaseDashboard
     type: Field::String.with_options(searchable: false),
     created_at: Field::DateTime.with_options(searchable: false),
     updated_at: Field::DateTime.with_options(searchable: false),
-    phone_number: Field::String.with_options(searchable: false)
+    phone_number: Field::String.with_options(searchable: false),
+    ssn: Field::Number.with_options(searchable: true),
+    company: Field::String.with_options(searchable: true)
+
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -40,7 +43,9 @@ class UserDashboard < Administrate::BaseDashboard
     :first_name,
     :last_name,
     :type,
-    :phone_number
+    :phone_number,
+    :ssn,
+    :company
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -59,6 +64,8 @@ class UserDashboard < Administrate::BaseDashboard
     :type,
     :created_at,
     :updated_at,
+    :ssn,
+    :company
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -69,7 +76,9 @@ class UserDashboard < Administrate::BaseDashboard
     :password,
     :first_name,
     :last_name,
-    :phone_number
+    :phone_number,
+    :ssn,
+    :company
   ].freeze
 
   # Overwrite this method to customize how users are displayed

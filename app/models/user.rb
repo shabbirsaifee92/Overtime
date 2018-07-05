@@ -6,9 +6,9 @@ class User < ApplicationRecord
 
   PHONE_REGEX = /\d{3}\d{3}\d{4}/
 
-  validates :first_name, :last_name, :phone_number, presence: true
+  validates :first_name, :last_name, :phone_number, :ssn, :company, presence: true
   validates :phone_number, presence: true, length: { is: 10 }, format: { with: PHONE_REGEX }
-
+  validates :ssn, length: { is: 4 }, numericality: {:greater_than_or_equal_to => 0}
 
 
   has_many :posts

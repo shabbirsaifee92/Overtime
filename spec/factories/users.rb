@@ -11,6 +11,8 @@ FactoryBot.define do
     first_name 'Jon'
     last_name 'Snow'
     phone_number '9876543210'
+    ssn 1234
+    company 'ABC company'
     # manager
   end
 
@@ -21,6 +23,8 @@ FactoryBot.define do
     first_name 'Admin'
     last_name 'User'
     phone_number '9876543210'
+    ssn 1234
+    company 'ABC company'
   end
 
   factory :another_user, class: 'User' do
@@ -30,6 +34,8 @@ FactoryBot.define do
     first_name 'Unauthorized'
     last_name 'User'
     phone_number '9876543210'
+    ssn 1234
+    company 'ABC company'
   end
 
   factory :manager, class: 'Manager' do
@@ -39,5 +45,7 @@ FactoryBot.define do
     first_name 'Manager'
     last_name 'User'
     phone_number '9876543210'
+    ssn 1234
+    company 'ABC company'
   end
 end
