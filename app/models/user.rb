@@ -18,7 +18,7 @@ class User < ApplicationRecord
   end
 
   def full_name
-    "#{last_name.upcase}, #{first_name.upcase}"
+    "#{first_name.titleize} #{last_name.titleize}"
   end
 
   private
