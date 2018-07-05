@@ -20,4 +20,4 @@
 .idea/*
 .rspec
 /.env
-config/*
+/config/*
