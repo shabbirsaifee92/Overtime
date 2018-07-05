@@ -1,9 +1,18 @@
+manager = Manager.create(email: 'ssaifee.manager@test.com',
+                         password: 'password',
+                         password_confirmation: 'password',
+                         first_name: 'manager',
+                         last_name: 'user',
+                         phone_number: '8572696189')
+puts "1 Manager created--------------------------"
+
 employee = Employee.create(email: 'ssaifee.user@test.com',
                    password: 'password',
                    password_confirmation: 'password',
                    first_name: 'test',
                    last_name: 'user',
-                   phone_number: '8572696189')
+                   phone_number: '8572696189',
+                   manager: manager)
 
 puts "1 Employee created--------------------------"
 

@@ -11,6 +11,7 @@ FactoryBot.define do
     first_name 'Jon'
     last_name 'Snow'
     phone_number '9876543210'
+    # manager
   end
 
   factory :admin_user, class: 'AdminUser' do
@@ -27,6 +28,15 @@ FactoryBot.define do
     password 'password'
     password_confirmation 'password'
     first_name 'Unauthorized'
+    last_name 'User'
+    phone_number '9876543210'
+  end
+
+  factory :manager, class: 'Manager' do
+    email { generate :email }
+    password 'password'
+    password_confirmation 'password'
+    first_name 'Manager'
     last_name 'User'
     phone_number '9876543210'
   end

@@ -24,6 +24,6 @@ class User < ApplicationRecord
   private
 
   def admin_types
-    ['AdminUser']
+    ['AdminUser', 'Manager']
   end
 end

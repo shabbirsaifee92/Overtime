@@ -31,7 +31,17 @@ RSpec.describe User, type: :model do
 
   describe 'custom name methods' do
     it 'has a full name method to retun full name' do
-      expect(@user.full_name).to eq('SNOW, JON')
+      expect(@user.full_name).to eq('Jon Snow')
+    end
+  end
+
+  describe 'relationship between managers and employees' do
+    it 'allows managers to be associated with multiple employees' do
+      manager = FactoryBot.create(:manager)
+      employee = FactoryBot.create(:user, manager_id: manager.id)
+      # employee1.update_attribute(:manager_id, manager.id)
+      # binding.pry
+      expect(employee.manager_id).to eq(manager.id)
     end
   end
 end
