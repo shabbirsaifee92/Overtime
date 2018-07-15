@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe 'navigation' do
-  
   let!(:user) { FactoryBot.create(:user) }
 
   let!(:post) { FactoryBot.create(:post, user: user) }

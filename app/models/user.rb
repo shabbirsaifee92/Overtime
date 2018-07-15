@@ -10,7 +10,6 @@ class User < ApplicationRecord
   validates :phone_number, presence: true, length: { is: 10 }, format: { with: PHONE_REGEX }
   validates :ssn, length: { is: 4 }, numericality: {:greater_than_or_equal_to => 0}
 
-
   has_many :posts
   has_many :audit_logs
   def admin?

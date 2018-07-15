@@ -14,7 +14,7 @@
     = f.date_field :date, id: 'date', class: 'form-control'
 
   .form-group
-    = f.label :rationale, for: 'rationale'
+    = f.label :work_performed, for: 'rationale'
     = f.text_area :rationale, id: 'rationale', class: 'form-control'
 
   = render partial: 'status', locals: {f: f} if current_user.admin?
