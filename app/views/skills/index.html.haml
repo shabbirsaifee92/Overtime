@@ -1,5 +1,10 @@
+%h3 Skills Learned
+
+%ul.list-unstyled
+  - @skills.each do |skill|
+    %li
+      = skill.name
 .row
   / Line Chart - Single Series
   .col-xs-6
-    %h3 Skills Learned
     = line_chart @skills.group_by_month(:created_at).count

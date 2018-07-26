@@ -4,7 +4,7 @@ class SkillsController < ApplicationController
   before_action :find_skill, only: [:show]
 
   def index
-    @skills = Skill.all
+    @skills = current_user.skills
   end
 
   def new
@@ -16,12 +16,11 @@ class SkillsController < ApplicationController
 
   def create
     @skill = Skill.new(skill_params)
-    binding.pry
     @skill.user = current_user
     if @skill.save
       redirect_to @skill, notice: 'New skill added'
     else
-      render :new, error: 'Something went wrong, please try again'
+      render :new
     end
   end
 
