@@ -1,0 +1,11 @@
+= form_for skill, class: 'form-horizontal' do |f|
+
+  .form-group
+    = f.label :name, for: 'name'
+    = f.text_field :name, id: 'name', class: 'form-control text_field'
+
+  .form-group
+    = f.label :skill_type, for: 'type', class: 'control-label'
+    = f.text_field :skill_type, id: 'type', class: 'form-control'
+
+  = f.submit 'Save', class: 'btn btn-primary btn-block'
