@@ -24,6 +24,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_median (0.1.4)
+      activerecord
     activejob (5.1.6)
       activesupport (= 5.1.6)
       globalid (>= 0.3.6)
@@ -68,6 +70,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
+    chartkick (2.3.5)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     coderay (1.1.2)
@@ -110,6 +113,8 @@ GEM
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gritter (1.2.0)
+    groupdate (4.0.1)
+      activesupport (>= 4.2)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -294,10 +299,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_median (~> 0.1.0)
   administrate
   bootstrap-sass (~> 3.3.7)
   byebug
   capybara (~> 2.13)
+  chartkick (~> 2.3, >= 2.3.5)
   coffee-rails (~> 4.2)
   database_cleaner
   devise
@@ -305,6 +312,7 @@ DEPENDENCIES
   factory_bot_rails (~> 4.10)
   font-awesome-rails
   gritter (= 1.2.0)
+  groupdate (~> 4.0, >= 4.0.1)
   haml-rails (~> 1.0)
   jbuilder (~> 2.5)
   jquery-rails

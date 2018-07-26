@@ -25,6 +25,9 @@ gem "font-awesome-rails"
 gem 'twilio-ruby', '~> 5.10.3'
 gem 'kaminari'
 gem 'newrelic_rpm'
+gem 'chartkick', '~> 2.3', '>= 2.3.5'
+gem 'groupdate', '~> 4.0', '>= 4.0.1'
+gem 'active_median', '~> 0.1.0'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
