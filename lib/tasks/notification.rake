@@ -9,7 +9,6 @@ namespace :notification do
       notification_message = "Please confirm the overtime hours for last week.
                               https://covermyovertime.herokuapp.com.
                               Ignore this message if you have already done so"
-      # binding.pry
       employees.each do |employee|
         AuditLog.create!(user: employee, start_date: Date.tomorrow)
         SmsTool.send_sms(number: employee.phone_number, message: notification_message)

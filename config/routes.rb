@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'cards/show'
+
   resources :audit_logs, except: [:new, :edit, :destroy] do
     get :confirm
   end
@@ -20,6 +22,9 @@ Rails.application.routes.draw do
       get :submit
     end
   end
+
+  resources :cards
+  resources :skills
   devise_for :users, skip: [:registrations]
   root 'static#homepage'
 end

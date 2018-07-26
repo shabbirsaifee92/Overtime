@@ -1,0 +1,25 @@
+.row
+  / Line Chart - Single Series
+  .col-xs-6
+    %h3 Cards
+    = line_chart @cards.group(:card_type).count, xtitle: "Card Type", ytitle: "Count"
+
+.row
+  .col-xs-6
+    %h3 Total cards resolved by you:
+    = pie_chart @cards.group(:card_type).count
+
+.row
+  .col-xs-6
+    %h3 Total cards resolved by you:
+    = geo_chart @cards.group(:card_type).count
+
+.row
+  .col-xs-6
+    %h3 Total cards resolved by you:
+    = bar_chart @cards.group(:card_type).sum(:points)
+
+.row
+  .col-xs-6
+    %h3 Total cards resolved by you:
+    = column_chart @cards.group(:card_type).count

@@ -14,6 +14,8 @@
 //= require bootstrap-sprockets
 //= require gritter
 //= require rails-ujs
+//= require Chart.bundle
+//= require chartkick
 //= require turbolinks
 //= require_tree .
 
