@@ -1,9 +1,25 @@
-%h3 Skills Learned
+%h2
+  Skills Learned
 
-%ul.list-unstyled
-  - @skills.each do |skill|
-    %li
-      = skill.name
+%table.table.table-hover
+  %thead
+    %tr
+      %th
+        Name
+      %th
+        Type
+      %th
+        Added
+  %tbody{id: 'posts'}
+    - @skills.each do |skill|
+      %tr.clickable
+        %td
+          = skill.name
+        %td
+          = skill.skill_type
+        %td
+          = skill.created_at
+
 .row
   / Line Chart - Single Series
   .col-xs-6
