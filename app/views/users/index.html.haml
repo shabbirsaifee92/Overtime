@@ -1,0 +1,24 @@
+%h2
+  Employees
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th
+        Name
+      %th
+        Type
+      %th
+        Added
+  %tbody{id: 'employees'}
+    - @users.each do |employee|
+      %tr.clickable
+        %td
+          = employee.full_name
+        %td
+          -#- binding.pry
+          - if current_user.followings.map(&:user_id).include?(employee.id)
+            .label.label-success
+              Following
+          - else
+            = link_to 'Follow', follow_user_path(employee)

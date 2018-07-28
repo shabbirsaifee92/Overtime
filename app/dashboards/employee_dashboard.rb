@@ -28,7 +28,8 @@ class EmployeeDashboard < Administrate::BaseDashboard
       updated_at: Field::DateTime.with_options(searchable: false),
       phone_number: Field::String.with_options(searchable: false),
       ssn: Field::Number.with_options(searchable: true),
-      company: Field::String.with_options(searchable: true)
+      company: Field::String.with_options(searchable: true),
+      manager: Field::BelongsTo.with_options(searchable: false)
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -44,7 +45,8 @@ class EmployeeDashboard < Administrate::BaseDashboard
       :type,
       :phone_number,
       :ssn,
-      :company
+      :company,
+      :manager
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -64,7 +66,8 @@ class EmployeeDashboard < Administrate::BaseDashboard
       :created_at,
       :updated_at,
       :ssn,
-      :company
+      :company,
+      :manager
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -77,7 +80,8 @@ class EmployeeDashboard < Administrate::BaseDashboard
       :last_name,
       :phone_number,
       :ssn,
-      :company
+      :company,
+      :manager
   ].freeze
 
   # Overwrite this method to customize how users are displayed

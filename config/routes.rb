@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  devise_for :users, skip: [:registrations]
   get 'cards/show'
 
   resources :audit_logs, except: [:new, :edit, :destroy] do
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
   resources :cards
   resources :skills
-  devise_for :users, skip: [:registrations]
+  resources :users, only: [:index]
+  get 'users/follow/:id', to: 'users#follow', as: 'follow_user'
   root 'static#homepage'
 end
