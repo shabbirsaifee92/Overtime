@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :posts
   has_many :audit_logs
   has_many :skills
+  has_many :user_followers, class_name: 'UserFollower', foreign_key: 'follower_id'
+  has_many :followings, class_name: 'UserFollower', foreign_key: 'user_id'
 
   def admin?
     admin_types.include?(self.type)
