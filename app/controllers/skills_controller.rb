@@ -18,6 +18,7 @@ class SkillsController < ApplicationController
     @skill = Skill.new(skill_params)
     @skill.user = current_user
     if @skill.save
+      current_user.update_followers_about_skill(@skill.name)
       redirect_to @skill, notice: 'New skill added'
     else
       render :new

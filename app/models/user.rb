@@ -39,9 +39,19 @@ class User < ApplicationRecord
     relationships.find_by(followed_id: other_user.id, follower: self).destroy!
   end
 
+  def update_followers_about_skill(skill_name)
+    inform_followers(msg: "#{full_name} has a learned a new skill: #{skill_name}.")
+  end
+
   private
 
   def admin_types
     ['AdminUser', 'Manager']
+  end
+
+  def inform_followers(msg: )
+    followers.each do |follower|
+      SmsTool.send_sms(number: follower.phone_number, message: msg)
+    end
   end
 end
