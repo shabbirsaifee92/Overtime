@@ -13,6 +13,12 @@
       = link_to 'Add New Skill', new_skill_path, id: 'new_skill_tab'
     %li{class: "#{active?(skills_path)}"}
       = link_to 'My Skills', skills_path, id: 'skills_path_tab'
+    %li{class: "#{active?(users_path)}"}
+      = link_to 'Users', users_path, id: 'users_path_tab'
+    %li{class: "#{active?(followers_path)}"}
+      = link_to 'Followers', followers_path, id: 'followers_path_tab'
+    %li{class: "#{active?(following_path)}"}
+      = link_to 'Following', following_path, id: 'following_path_tab'
 
   - if policy(AuditLog).index?
     %li{:class => "#{active?(audit_logs_path)}", :role => "presentation"}

@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def followings; end
+  def following; end
 
-  def followers ; end
+  def followers; end
 end

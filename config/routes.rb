@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   resources :skills
   resources :users, only: [:index]
   get 'users/follow/:id', to: 'users#follow', as: 'follow_user'
-  get 'followings', to: 'users#followings'
+  get 'following', to: 'users#following'
   get 'followers', to: 'users#followers'
   root 'static#homepage'
 end
