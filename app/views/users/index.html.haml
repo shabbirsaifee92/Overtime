@@ -16,8 +16,7 @@
         %td
           = employee.full_name
         %td
-          -#- binding.pry
-          - if current_user.followings.map(&:user_id).include?(employee.id)
+          - if current_user.followed_users.include?(employee)
             .label.label-success
               Following
           - else

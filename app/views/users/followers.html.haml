@@ -11,7 +11,7 @@
       %th
         Added
   %tbody{id: 'employees'}
-    - @followers.each do |follower|
+    - current_user.followers.each do |follower|
       %tr.clickable
         %td
           = follower.full_name
