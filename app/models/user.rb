@@ -10,11 +10,14 @@ class User < ApplicationRecord
   validates :phone_number, presence: true, length: { is: 10 }, format: { with: PHONE_REGEX }
   validates :ssn, length: { is: 4 }, numericality: {:greater_than_or_equal_to => 0}
 
-  has_many :posts
+  has_many :posts, dependent: :destroy
   has_many :audit_logs
-  has_many :skills
-  has_many :user_followers, class_name: 'UserFollower', foreign_key: 'user_id'
-  has_many :followings, class_name: 'UserFollower', foreign_key: 'follower_id'
+  has_many :skills, dependent: :destroy
+
+  has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
+  has_many :reverse_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
+  has_many :followed_users, through: :relationships, source: :followed
+  has_many :followers, through: :reverse_relationships, source: :follower
 
   def admin?
     admin_types.include?(self.type)
@@ -22,6 +25,18 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name.titleize} #{last_name.titleize}"
+  end
+
+  def following?(other_user)
+    relationships.find_by(followed_id: other_user.id).present?
+  end
+
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id, follower: self)
+  end
+
+  def unfollow!(other_user)
+    relationships.find_by(followed_id: other_user.id, follower: self).destroy!
   end
 
   private

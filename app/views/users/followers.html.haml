@@ -1,0 +1,19 @@
+%h2
+  Employees
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th
+        Name
+      %th
+        Type
+      %th
+        Added
+  %tbody{id: 'employees'}
+    - @followers.each do |follower|
+      %tr.clickable
+        %td
+          = follower.full_name
+        %td
+

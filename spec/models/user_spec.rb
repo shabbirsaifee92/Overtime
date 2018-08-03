@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before do
-    @user = FactoryBot.build_stubbed(:user)
+    @user = FactoryBot.create(:user)
   end
 
   describe 'creation' do
@@ -52,6 +52,31 @@ RSpec.describe User, type: :model do
       # employee1.update_attribute(:manager_id, manager.id)
       # binding.pry
       expect(employee.manager_id).to eq(manager.id)
+    end
+  end
+
+  describe 'user relationships' do
+    it { should respond_to(:followed_users) }
+    it { should respond_to(:following?) }
+    it { should respond_to(:follow!) }
+    it { should respond_to(:unfollow!) }
+    it { should respond_to(:followers) }
+    it { should respond_to(:reverse_relationships) }
+
+    context 'following and followed' do
+      let(:other_user) { FactoryBot.create(:user) }
+      before do
+        @user.follow!(other_user)
+      end
+
+      it 'should be following other_user' do
+        expect(@user.following?(other_user)).to be(true)
+        expect(@user.followed_users).to include(other_user)
+      end
+
+      it 'should have other_user as follower' do
+        expect(other_user.followers).to include(@user)
+      end
     end
   end
 end
